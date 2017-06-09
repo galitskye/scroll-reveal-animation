@@ -1,0 +1,23 @@
+{
+  "name": "scroll-reveal-animation",
+  "version": "0.0.1",
+  "description": "scroll reveal animate library",
+  "main": "example.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/galitskye/scroll-reveal-animation.git"
+  },
+  "keywords": [
+    "scroll",
+    "animation",
+    "reveal",
+    "top",
+    "down"
+  ],
+  "author": "galitskye",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/galitskye/scroll-reveal-animation/issues"
+  },
+  "homepage": "https://github.com/galitskye/scroll-reveal-animation#readme"
+}
