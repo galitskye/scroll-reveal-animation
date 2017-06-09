@@ -8,7 +8,27 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <h1>Reverse animation</h1>
+<section id="wrapperAnimation" class="page-wrapper">
+  <div class="item">
+    <div class="text">Animation Text</div>
+  </div>
+  <div class="item">
+    <div class="text">Animation Text</div>
+  </div>
+  <div class="item">
+    <div class="text">Animation Text</div>
+  </div>
+  <div class="item">
+    <div class="text">Animation Text</div>
+  </div>
+  <div class="item">
+    <div class="text">Animation Text</div>
+  </div>
+</section>
+  
   <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', ScrollRevealAnimation('wrapperAnimation', {}));
+  </script>
 </body>
 </html>
