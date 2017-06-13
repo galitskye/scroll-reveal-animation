@@ -2,14 +2,15 @@ function ScrollRevealAnimation(wrapper, config) {
     this.wrapper = window[wrapper] || document.getElementsByClassName(wrapper);
     this.wrapperChildren = this.wrapper.children;
     this.config = {
-        scrollDuration: 100
+        scrollDuration: 700
     };
+    this.animationFlag = true;
 
     // Initialize function
     this.init = function () {
         this.sectionsHeight();
         this.resize();
-        this.scrollSectionRemove();
+        this.scrollSectionAnimation();
     };
 
     // Set sections height into wrapper
@@ -30,18 +31,54 @@ function ScrollRevealAnimation(wrapper, config) {
         }
     };
 
-    this.scrollSectionRemove = function () {
+    // Detect, where user scroll
+    this.scrollSectionAnimation = function () {
         var self = this;
-        window.onscroll = function () {
+        window.onwheel = function (event) {
             var topWindowScroll = window.pageYOffset;
-            console.log(topWindowScroll);
-            // window.scrollTo(topWindowScroll, topWindowScroll + self.wh);
+            if(event.deltaY>0) {
+                self.direction = true;
+                self.scrollAnimation(topWindowScroll, topWindowScroll + self.wh,event.deltaY);
+            } else {
+                self.direction = false;
+                self.scrollAnimation(topWindowScroll, topWindowScroll - self.wh,event.deltaY);
+            }
         }
     };
 
-    // this.detectScreenSection = function () {
-    //
-    // }
+    // Scroll animation function
+    this.scrollAnimation = function(start, to, direction){
+        var self = this;
+        var beginAnim = new Date().getTime();
+        
+        if(self.animationFlag){
+            self.animationFlag = false;
+            setTimeout(function() {
+                var now = (new Date().getTime()) - beginAnim;
+                console.log(self.config.scrollDuration);
+                var progress = now / self.config.scrollDuration;
+
+                var result = (to - start) * delta(progress) + start;
+
+                if(result>to && self.direction || result<to && !self.direction) {
+                    result = to;
+                }
+
+                window.scrollTo(start,result);             
+
+                if (progress < 1) {
+                    setTimeout(arguments.callee, 10)
+                } else {
+                    self.animationFlag = true;
+                };
+            }, 10);
+        }
+
+        function delta(progress) {
+            return progress;
+        }
+
+    },
 
     // Resize window
     this.resize = function () {
@@ -53,4 +90,3 @@ function ScrollRevealAnimation(wrapper, config) {
 
     this.init();
 }
-

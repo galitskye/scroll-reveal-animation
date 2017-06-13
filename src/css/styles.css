@@ -1,10 +1,12 @@
 body {
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  overflow: hidden; }
 
 .item {
-  position: relative;
-  border-bottom: 1px solid; }
+  position: relative; }
+  .item:nth-child(odd) {
+    background: grey; }
   .item .text {
     position: absolute;
     top: 50%;
