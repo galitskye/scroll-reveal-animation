@@ -5,12 +5,11 @@ body {
 }
 
 .item {
-  // position: fixed;
   position: relative;
-  // border-bottom: 1px solid;
-
-  &:nth-child(odd) {
-    background: grey;
+  color: #fff;
+  
+  &.current-slide {
+    z-index: 1;
   }
 
   .text {

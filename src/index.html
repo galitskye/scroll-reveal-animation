@@ -9,26 +9,28 @@
 </head>
 <body>
 <section id="wrapperAnimation" class="page-wrapper">
-  <div class="item">
+  <div class="item" data-img="http://www.radionetplus.ru/uploads/posts/2013-04/1366526754_oboi-miks-25.jpg">  
     <div class="text">Animation Text</div>
   </div>
-  <div class="item">
+  <div class="item" data-img="https://nowoe.ru/wp-content/uploads/ddfa974e9c6a381a7dd35ce4f38c5822291db9ca.jpg">
     <div class="text">Animation Text2</div>
   </div>
-  <div class="item">
+  <div class="item" data-img="http://www.radionetplus.ru/uploads/posts/2013-04/1366526754_oboi-miks-25.jpg">  
     <div class="text">Animation Text3</div>
   </div>
-  <div class="item">
+  <div class="item" data-img="https://nowoe.ru/wp-content/uploads/ddfa974e9c6a381a7dd35ce4f38c5822291db9ca.jpg">
     <div class="text">Animation Text4</div>
   </div>
-  <div class="item">
+  <div class="item" data-img="http://www.radionetplus.ru/uploads/posts/2013-04/1366526754_oboi-miks-25.jpg">  
     <div class="text">Animation Text5</div>
   </div>
 </section>
   
   <script src="js/main.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', ScrollRevealAnimation('wrapperAnimation', {}));
+    document.addEventListener('DOMContentLoaded', function () {
+      ScrollRevealAnimation('wrapperAnimation', {});
+    });
   </script>
 </body>
 </html>
