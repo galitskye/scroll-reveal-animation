@@ -1,11 +1,60 @@
-body {
+/*
+  Scroll Reveal Full-page Slider With Parallax
+  2017
+*/
+body, ul {
   padding: 0;
   margin: 0; }
 
+.reveal-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  list-style-type: none; }
+  .reveal-nav .nav-item {
+    display: inline-block; }
+
 .reveal-item {
   position: relative;
-  transition: all .1s; }
-  .reveal-item:nth-child(odd) {
-    background: grey; }
-  .reveal-item.current-slide {
+  overflow: hidden; }
+  .reveal-item.reveal-before {
     z-index: 1; }
+  .reveal-item.reveal-current {
+    overflow: visible; }
+  .reveal-item.reveal-after ~ .reveal-after {
+    z-index: -1; }
+  .reveal-item .reveal-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    -webkit-background-size: cover;
+            background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden; }
+    .reveal-item .reveal-overlay ~ * {
+      position: relative;
+      z-index: 1; }
+
+.text {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  font: 50px/1 sans-serif;
+  color: #FFF;
+  text-shadow: 2px 2px 1px #000; }

@@ -1,26 +1,65 @@
-body {
+/*
+  Scroll Reveal Full-page Slider With Parallax
+  2017
+*/
+body, ul {
   padding: 0;
   margin: 0;
 }
+.reveal-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  list-style-type: none;
 
+  .nav-item {
+    display: inline-block;
+  }
+}
 .reveal-item {
   position: relative;
-  // color: #fff;
-  transition: all .1s;
+  overflow: hidden;
 
-  &:nth-child(odd) {
-    background: grey;
-  }
-  
-  &.current-slide {
+  &.reveal-before{
     z-index: 1;
   }
 
-  // .text {
-  //   position: absolute;
-  //   top: 50%;
-  //   left: 50%;
-  //   transform: translate(-50%,-50%);
-  //   font-size: 45px;
-  // }
+  &.reveal-current {
+    overflow: visible;
+  }
+
+  &.reveal-after {
+    &~.reveal-after {
+      z-index: -1;
+    }
+  }
+
+  .reveal-overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    backface-visibility: hidden;
+
+    &~* {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font: 50px/1 sans-serif;
+  color: #FFF;
+  text-shadow: 2px 2px 1px #000;
 }
